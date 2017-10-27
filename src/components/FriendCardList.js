@@ -9,10 +9,10 @@ export default class FriendCardList extends React.Component {
       <div>
         {
           friendList.map((friendInfo) =>
-          <FriendCard friendInfo={friendInfo} key={friendInfo.id}/>
-        )
+            <FriendCard friendInfo={friendInfo} key={friendInfo.id}/>
+          )
         }
     </div>
-    );
+    )
   }
 }
