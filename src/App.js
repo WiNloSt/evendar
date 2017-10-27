@@ -9,9 +9,9 @@ class App extends Component {
   render() {
     return (
       <MuiThemeProvider>
-      <BrowserRouter>
-        <Route exact path="/debug" component={Debug}/>
-      </BrowserRouter>
+        <BrowserRouter>
+          <Route exact path="/debug" component={Debug}/>
+        </BrowserRouter>
       </MuiThemeProvider>
     );
   }

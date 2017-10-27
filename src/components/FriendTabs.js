@@ -1,14 +1,6 @@
 import React from 'react';
 import {Tabs, Tab} from 'material-ui/Tabs';
 import FriendCardList from './FriendCardList'
-const styles = {
-  headline: {
-    fontSize: 24,
-    paddingTop: 16,
-    marginBottom: 12,
-    fontWeight: 400,
-  },
-};
 
 export default class FriendTabs extends React.Component {
 
@@ -27,23 +19,10 @@ handleChange = (value) => {
 
   render() {
     let mockImg = 'https://scontent.fbkk2-3.fna.fbcdn.net/v/t31.0-8/22135364_10212726556412139_963748036038381781_o.jpg?oh=5afd41467d4eae7f4d7a9289c5820d8a&oe=5A786424'
-    let goingList = [{
-      id:1,
-      imgUrl:mockImg,
-      name:'nut nut'
-    }]
-    let interestedList = [
-      {
-        id:1,
-        imgUrl:mockImg,
-        name:'nut nut'
-      },
-      {
-        id:2,
-        imgUrl:mockImg,
-        name:'nut nut'
-      }
-    ]
+    const attending = this.props.attending
+    const goingList = attending.filter(friend => friend.rsvp_status === 'attending')
+    const interestedList = attending.filter(friend => friend.rsvp_status === 'maybe')
+
     return (
       <Tabs
         value={this.state.value}

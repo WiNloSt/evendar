@@ -1,11 +1,9 @@
 import React from 'react';
-import {Card, CardHeader, CardText} from 'material-ui/Card';
+import {Card, CardHeader} from 'material-ui/Card';
 import Avatar from 'material-ui/Avatar'
 import CardTitle from './CardTitle'
 
 export default class FriendCard extends React.Component {
-
-
   render() {
     const friendInfo = this.props.friendInfo
     const imgSize = 70
