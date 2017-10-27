@@ -34,7 +34,7 @@ jobs:
 
       - run:
           name: Deploy Master to Firebase
-          command: yarn firebase deploy --token=$FIREBASE_DEPLOY_TOKEN --non-interactive
+          command: yarn firebase deploy -- --token=$FIREBASE_DEPLOY_TOKEN --non-interactive
 
       - save_cache:
           paths:
