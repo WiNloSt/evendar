@@ -11,6 +11,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import Navigation from './components/BottomNavigation'
 import Calendar from './components/Calendar'
 import EventDetail from './components/EventDetail'
+import LoginPage from './containers/LoginPage'
 
 class App extends Component {
   render() {
@@ -20,6 +21,7 @@ class App extends Component {
           <div>
             <Switch>
               <ContentContainer>
+                <Route exact path="/login" component={LoginPage} />
                 <Route exact path="/" component={Home} />
                 <Route path="/calendar" component={Calendar} />
                 <Route exact path="/debug" component={Debug} />

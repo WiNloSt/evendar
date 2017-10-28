@@ -1,8 +1,9 @@
 import React from 'react'
 import Button from '../components/Button'
 import { getEvents, getAllTargetEvents } from '../utils/services'
+import { withRouter } from "react-router-dom"
 
-export default class LoginPage extends React.Component {
+class LoginPage extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -13,6 +14,7 @@ export default class LoginPage extends React.Component {
   }
 
   loginHandle() {
+    const self = this
     global.FB.login(() => { }, {
       scope: 'email,user_events,rsvp_event'
     })
@@ -23,6 +25,8 @@ export default class LoginPage extends React.Component {
       localStorage.setItem('signedRequest', response.authResponse.signedRequest)
       localStorage.setItem('loginStatus', response.status)
       localStorage.setItem('isLoggedin', true)
+      console.log('sfd;laf;ldskfsd;lfk')
+      self.props.history.push("/")
       getEvents()
       getAllTargetEvents().then((response) => {
         console.log('response', response)
@@ -47,17 +51,13 @@ export default class LoginPage extends React.Component {
 
   render() {
     return (
-      <div>
-        {
-          this.state.isLoggedIn
-            ? <Button buttonHandle={this.logoutHandle}>
-                Logout
-              </Button>
-            : <Button buttonHandle={this.loginHandle}>
-                Login
-              </Button>
-        }
+      <div style={{display: 'flex', width: '100%', height:'100%', margin: 0, padding: 0, alignItems: 'center', justifyContent: 'center'}}>
+        <Button buttonHandle={this.loginHandle} >
+          Login with Facebook
+        </Button>
       </div>
     )
   }
 }
+
+export default withRouter(LoginPage)

@@ -12,9 +12,9 @@ export default class Button extends React.Component {
 
   render() {
     return (
-      <button onClick={this.onButtonHandle}>
+      <div onClick={this.onButtonHandle} style={{ background: '#3b5998', color: '#FFFFFF', padding: '20px'}}>
         {this.props.children}
-      </button>
+      </div>
     )
   }
 }
