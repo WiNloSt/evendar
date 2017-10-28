@@ -11,6 +11,7 @@ const Navigation = ({ routes, page, setPage, history }) => (
         {routes.map((route, index) => (
           <BottomNavigationItem
             style={{ fontSize: 16 }}
+            key={index}
             label={route.name}
             icon={<FontIcon className="material-icons">{route.icon}</FontIcon>}
             onClick={() => {

@@ -22,7 +22,9 @@ export default class EventCardList extends React.Component {
     return (
       <div className="EventCardList">{
         events.map(event =>
-          <Link to={`/events/${event.id}`} onClick={this.handleClick(event)}>
+          <Link to={`/events/${event.id}`} 
+          key={event.id}
+          onClick={this.handleClick(event)}>
             <EventCard name={event.name} imgUrl={event.url} key={event.id} />
           </Link>
         )
