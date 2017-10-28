@@ -1,10 +1,11 @@
 import React from 'react'
+import EventCardList from '../components/EventCardList'
 
 export default class Home extends React.Component {
   render() {
     return (
       <div>
-        <h1>ABC</h1>
+        <EventCardList />
       </div>
     )
   }

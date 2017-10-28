@@ -1,32 +1,15 @@
-import React from 'react'
-import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
-import FlatButton from 'material-ui/FlatButton';
+import React from 'react';
+import {Card, CardHeader} from 'material-ui/Card';
+import Avatar from 'material-ui/Avatar'
+import CardTitle from './CardTitle'
 
-const styles = {
-  root: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    justifyContent: 'space-around',
-  },
-};
-
-const EventCard = ({ id, title, organizerImg, organizerName, description }) => (
+const EventCard = ({ name, imgUrl }) => (
   <Card>
-  <CardMedia
-    overlay={<CardTitle title={title} subtitle={`by ${organizerName}`} />}
-  >
-    <img src={organizerImg} alt="" />
-  </CardMedia>
-  <CardTitle title="รายละเอียด" subtitle="" />
-  <CardText>
-  {description}
-  </CardText>
-  <CardActions style={{textAlign: 'right'}}>
-    <FlatButton label="Go" />
-    <FlatButton label="Interest" />
-    <FlatButton label="Cancel" />
-  </CardActions>
-</Card>
-);
+    <CardHeader
+      title={<CardTitle> {name} </CardTitle>}
+      avatar={<Avatar src={imgUrl} size={70} />}
+    />
+  </Card>
+)
 
 export default EventCard
