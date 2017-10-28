@@ -1,6 +1,7 @@
 import React from 'react';
 
 import FriendTabs from './FriendTabs'
+import EventCard from './EventCard'
 
 export default class EventCardList extends React.Component {
   render() {
@@ -41,10 +42,12 @@ export default class EventCardList extends React.Component {
     return (
       <div className="EventCardList">{
         events.map(event => 
-          <FriendTabs attending={event.attending.data} key={event.id} />
+          <EventCard event={event} key={event.id}/>
         )
       }
       </div>
     );
   }
 }
+
+// {/*<FriendTabs attending={event.attending.data} key={event.id} />*/}
