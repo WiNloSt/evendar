@@ -21,7 +21,6 @@ class App extends Component {
             <Switch>
               <ContentContainer>
                 <Route exact path="/" component={Home} />
-                <Route path="/debug" component={Debug} />
                 <Route path="/calendar" component={Calendar} />
                 <Route exact path="/debug" component={Debug} />
                 <Route exact path="/events/:id" component={EventDetail} />

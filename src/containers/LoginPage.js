@@ -1,6 +1,5 @@
 import React from 'react'
-import LoginButton from '../components/LoginButton'
-import LogoutButton from '../components/LogoutButton'
+import Button from '../components/Button'
 import { getEvents, getAllTargetEvents } from '../utils/services'
 
 export default class LoginPage extends React.Component {
@@ -51,12 +50,12 @@ export default class LoginPage extends React.Component {
       <div>
         {
           this.state.isLoggedIn
-            ? <LogoutButton
-              logoutHandle={this.logoutHandle}
-            />
-            : <LoginButton
-              loginHandle={this.loginHandle}
-            />
+            ? <Button buttonHandle={this.logoutHandle}>
+                Logout
+              </Button>
+            : <Button buttonHandle={this.loginHandle}>
+                Login
+              </Button>
         }
       </div>
     )
