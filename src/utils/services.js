@@ -8,8 +8,9 @@ export const getEvents = () => new Promise(resolve => global.FB.api(
   }
 ))
 
-export const getGroupEvents = (groupId) => new Promise(resolve => global.FB.api(
-  `/${groupId}/events`,
+// FOR Group & Page
+export const getTargetEvents = (targetId) => new Promise(resolve => global.FB.api(
+  `/${targetId}/events`,
   'GET',
   {},
   function(response) {
