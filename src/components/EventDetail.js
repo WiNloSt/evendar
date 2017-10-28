@@ -3,11 +3,6 @@ import {Card, CardActions, CardMedia, CardTitle, CardText} from 'material-ui/Car
 import FlatButton from 'material-ui/FlatButton';
 import * as store from '../store'
 
-const log = (x) => {
-  console.log(x)
-  return x
-}
-
 const EventDetail = ({ match, id, title, organizerImg, organizerName, description }) => (
   <Card>
   <CardMedia
