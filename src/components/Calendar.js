@@ -32,6 +32,11 @@ Facebook Developer Circle: Bangkok กำลังจะจัดงาน Meetu
     },
     start_time: '2017-10-27T18:00:00+0700',
     id: '148584322421822'
+  },
+  {
+    name: 'test',
+    start_time: '2017-10-25T18:00:00+0700',
+    end_time: '2017-10-26T18:00:00+0700'
   }
 ]
 
@@ -41,14 +46,39 @@ const mockData = mockApiResponse.map(event => ({
   title: event.name
 }))
 
+const colorPalette = ['#F44336', '#9C27B0', '#3F51B5', '#03A9F4', '#009688', '#8BC34A', '#FF9800', '#795548', '#607D8B']
+
+const generateColor = name => {
+  let sum = 0
+  for (let char of name) {
+    sum += char.charCodeAt(0)
+  }
+
+  const index = sum % colorPalette.length
+
+  return colorPalette[index]
+}
+
 BigCalendar.momentLocalizer(moment)
 
 const Calendar = () => (
   <FullHeight>
-    <BigCalendar events={mockData} />
+    <BigCalendar
+      events={mockData}
+      eventPropGetter={props => {
+        return { style: { background: colorPalette[(Math.random() * colorPalette.length) | 0] } }
+      }}
+    />
   </FullHeight>
 )
 
 export default Calendar
 
-const FullHeight = styled.div`height: 100%;`
+const FullHeight = styled.div`
+  height: 100%;
+
+  .rbc-event.rbc-selected {
+    filter: saturate(50%);
+    background: inherit;
+  }
+`
