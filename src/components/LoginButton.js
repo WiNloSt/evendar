@@ -14,7 +14,7 @@ export default class LoginButton extends React.Component {
 
     loginHandle() {
         global.FB.login(() => { }, {
-          scope: 'email,user_events'
+          scope: 'email,user_events,rsvp_event'
         })
         global.FB.getLoginStatus((response)=> {
           console.log('response',response)
