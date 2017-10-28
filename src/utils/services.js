@@ -29,7 +29,6 @@ const targetIds = [
 
 export const getAllTargetEvents = () => {
   return (P.map(targetIds, getTargetEvents).then(x => _.map(x, 'data'))).then(x => _.compact(_.flattenDeep(x))).catch(console.error)
-  // .then(x => _.compact(_.flattenDeep(x)))
 }
 
 const updateEventStatus = (eventId, status) => new Promise(resolve => global.FB.api(
