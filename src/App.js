@@ -31,7 +31,6 @@ class App extends Component {
             <Navigation
               routes={[
                 { path: '/', name: 'Home', icon: 'home' },
-                { path: '/debug', name: 'Event Cards', icon: 'view_list' },
                 { path: '/calendar', name: 'Calendar', icon: 'event' }
               ]}
             />

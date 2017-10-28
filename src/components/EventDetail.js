@@ -9,13 +9,13 @@ import * as store from '../store'
 const EventDetail = () => (
   <Card>
   <CardMedia
-    overlay={<CardTitle title={store.get().event.name} subtitle={`by ${store.get().event.organizerName}`} />}
+    overlay={<CardTitle title={(store.get().event || {}).name} subtitle={`by ${(store.get().event || {}).organizerName}`} />}
   >
-    <img src={store.get().event.organizerImg} alt="" />
+    <img src={(store.get().event || {}).organizerImg} alt="" />
   </CardMedia>
   <CardTitle title="รายละเอียด" subtitle="" />
   <CardText>
-    {store.get().event.description}
+    {(store.get().event || {}).description}
     <div>
     <h3>Attendees</h3>
     <Avatar src="http://www.material-ui.com/images/uxceo-128.jpg" />
