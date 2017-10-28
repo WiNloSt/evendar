@@ -1,3 +1,6 @@
+import P from 'bluebird'
+import _ from 'lodash'
+
 export const getEvents = () => new Promise(resolve => global.FB.api(
   '/me/events',
   'GET',
@@ -17,3 +20,11 @@ export const getTargetEvents = (targetId) => new Promise(resolve => global.FB.ap
     resolve(response)
   }
 ));
+
+const targetIds = [
+]
+
+
+export const getAllTargetEvents = () => {
+  return P.map(targetIds, getTargetEvents).then(x => _.map(x, 'data'))
+}
