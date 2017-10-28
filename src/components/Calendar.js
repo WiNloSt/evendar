@@ -3,7 +3,7 @@ import BigCalendar from 'react-big-calendar'
 import moment from 'moment'
 import 'react-big-calendar/lib/css/react-big-calendar.css'
 import styled from 'react-emotion'
-import { get } from '../store'
+import { get, set } from '../store'
 
 const colorPalette = ['#F44336', '#9C27B0', '#3F51B5', '#03A9F4', '#009688', '#8BC34A', '#FF9800', '#795548', '#607D8B']
 
@@ -46,8 +46,11 @@ class Calendar extends React.Component {
         <BigCalendar
           events={this.state.data}
           eventPropGetter={props => {
-            console.log(props, '////')
             return { style: { background: generateColor(props.organizerName) } }
+          }}
+          onSelectEvent={event => {
+            set({ event })
+            this.props.history.push(`/events/${event.id}`)
           }}
         />
       </FullHeight>
