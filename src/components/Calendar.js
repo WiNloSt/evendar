@@ -14,4 +14,4 @@ const Calendar = () => (
 
 export default Calendar
 
-const FullHeight = styled.div`height: 100vh;`
+const FullHeight = styled.div`height: 100%;`
