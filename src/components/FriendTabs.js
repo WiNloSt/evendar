@@ -8,7 +8,7 @@ export default class FriendTabs extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      value: 'a',
+      value: 'r',
       goingEvents: [],
       interestedEvents: [],
       recommendEvents: [],
