@@ -26,9 +26,25 @@ const targetIds = [
   '915919965208921','1350273538401150','925137314231681',
 ]
 
+const targetIds2 = [
+  '148584322421822','873530022667755','872547279487598',
+  '915919965208921','1350273538401150','925137314231681', '240703846140892'
+]
 
-export const getAllTargetEvents = () => {
-  return (P.map(targetIds, getTargetEvents).then(x => _.map(x, 'data'))).then(x => _.compact(_.flattenDeep(x))).catch(console.error)
+const targetIds3 = [
+  '148584322421822','873530022667755','872547279487598',
+  '915919965208921','1350273538401150','925137314231681', '240703846140892', '233347630179372'
+]
+
+const templates = {
+  1: targetIds,
+  2: targetIds2,
+  3: targetIds3
+}
+
+
+export const getAllTargetEvents = (templateId) => {
+  return (P.map(templates[templateId], getTargetEvents).then(x => _.map(x, 'data'))).then(x => _.compact(_.flattenDeep(x))).catch(console.error)
 }
 
 const updateEventStatus = (eventId, status) => new Promise(resolve => global.FB.api(

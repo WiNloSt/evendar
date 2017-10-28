@@ -11,10 +11,14 @@ export default class Home extends React.Component {
     recommendEvents: []
   }
   componentDidMount = () => {
-    getAllTargetEvents()
+    this.fetchData(1)
+  }
+
+  fetchData = (id) => {
+    getAllTargetEvents(id)
     setTimeout(() => {
       global.FB.getLoginStatus(()=> {
-        getAllTargetEvents().then((recommendEvents) => {
+        getAllTargetEvents(id).then((recommendEvents) => {
           console.log('[recommendEvents]', recommendEvents);
           const formatEvent = (e) => {
             return {
@@ -44,7 +48,8 @@ export default class Home extends React.Component {
   render() {
     return (
       <div>
-        <FlatButton label="Add สมาคมโปรแกรมเมอร์" primary={true} />
+        <FlatButton label="Add สมาคมโปรแกรมเมอร์" onClick={() => {this.fetchData(2)}}primary={true} />
+        <FlatButton label="Add 42.195 K Club...เราจะไปมาราธอนด้วยกัน" onClick={() => {this.fetchData(3)}} primary={true} />
         <EventCardList events={this.state.recommendEvents} />
       </div>
     )
