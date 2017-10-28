@@ -13,7 +13,7 @@ const Navigation = ({ routes, page, setPage, history }) => (
             <BottomNavigationItem
               style={{ fontSize: 16 }}
               label={route.name}
-              key={index}
+              key={route.name}
               icon={<FontIcon className="material-icons">{route.icon}</FontIcon>}
               onClick={() => {
                 history.push(route.path)
