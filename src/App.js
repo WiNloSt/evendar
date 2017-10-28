@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Route } from 'react-router'
 import { BrowserRouter, Switch } from 'react-router-dom'
 import 'material-design-icons/iconfont/material-icons.css'
+import styled from 'react-emotion'
 
 import './App.css'
 import Debug from './Debug'
@@ -18,11 +19,13 @@ class App extends Component {
         <BrowserRouter>
           <div>
             <Switch>
-              <Route exact path="/" component={Home} />
-              <Route path="/debug" component={Debug} />
-              <Route path="/calendar" component={Calendar} />
-              <Route exact path="/debug" component={Debug} />
-              <Route exact path="/events/:id" component={EventDetail} />
+              <ContentContainer>
+                <Route exact path="/" component={Home} />
+                <Route path="/debug" component={Debug} />
+                <Route path="/calendar" component={Calendar} />
+                <Route exact path="/debug" component={Debug} />
+                <Route exact path="/events/:id" component={EventDetail} />
+              </ContentContainer>
             </Switch>
             <Navigation
               routes={[
@@ -39,3 +42,12 @@ class App extends Component {
 }
 
 export default App
+
+const ContentContainer = styled.div`
+  position: absolute;
+  overflow: auto;
+  top: 0;
+  right: 0;
+  bottom: 56px;
+  left: 0;
+`
