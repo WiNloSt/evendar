@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import EventCardList from './components/EventCardList'
 import LoginPage from './containers/LoginPage'
 import FriendTabs from './components/FriendTabs'
 
