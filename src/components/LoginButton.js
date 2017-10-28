@@ -13,14 +13,16 @@ export default class LoginButton extends React.Component {
     }
 
     loginHandle() {
-        global.FB.login()
+        global.FB.login(() => { }, {
+          scope: 'email,user_events'
+        })
         global.FB.getLoginStatus((response)=> {
-            console.log('response',response)
-            localStorage.setItem('accessToken', response.authResponse.accessToken)
-            localStorage.setItem('expiresIn', response.authResponse.expiresIn)
-            localStorage.setItem('signedRequest', response.authResponse.signedRequest)
-            localStorage.setItem('loginStatus', response.status)
-            getEvents()
+          console.log('response',response)
+          localStorage.setItem('accessToken', response.authResponse.accessToken)
+          localStorage.setItem('expiresIn', response.authResponse.expiresIn)
+          localStorage.setItem('signedRequest', response.authResponse.signedRequest)
+          localStorage.setItem('loginStatus', response.status)
+          getEvents()
         })
         this.changeLogInState()
     }
