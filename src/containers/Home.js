@@ -2,6 +2,7 @@ import React from 'react'
 import FlatButton from 'material-ui/FlatButton';
 import EventCardList from '../components/EventCardList'
 import { getEvents, getAllTargetEvents } from '../utils/services'
+import * as store from '../store'
 import _ from 'lodash';
 
 
@@ -43,6 +44,7 @@ export default class Home extends React.Component {
           })
         })
       })
+      store.set({events: this.state.recommendEvents})
     }, 2500)
   }
   render() {
