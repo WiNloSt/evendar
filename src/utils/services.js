@@ -30,3 +30,17 @@ const targetIds = [
 export const getAllTargetEvents = () => {
   return P.map(targetIds, getTargetEvents).then(x => _.map(x, 'data'))
 }
+
+const updateEventStatus = (eventId, status) => new Promise(resolve => global.FB.api(
+  `/${eventId}/${status}`,
+  'POST',
+  {},
+  function(response) {
+    resolve(response)
+  }
+));
+
+export const attend = (eventId) => updateEventStatus(eventId, 'attending');
+export const maybe = (eventId) => updateEventStatus(eventId, 'maybe');
+export const interest = (eventId) => updateEventStatus(eventId, 'interested');
+export const cancel = (eventId) => updateEventStatus(eventId, 'declined');
