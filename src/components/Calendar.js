@@ -28,6 +28,7 @@ class Calendar extends React.Component {
     const { events = [] } = get()
 
     const data = events.map(event => ({
+      ...event,
       start: new Date(event.start_time),
       end: new Date(event.end_time || event.start_time),
       title: event.name
@@ -45,7 +46,8 @@ class Calendar extends React.Component {
         <BigCalendar
           events={this.state.data}
           eventPropGetter={props => {
-            return { style: { background: colorPalette[(Math.random() * colorPalette.length) | 0] } }
+            console.log(props, '////')
+            return { style: { background: generateColor(props.organizerName) } }
           }}
         />
       </FullHeight>
