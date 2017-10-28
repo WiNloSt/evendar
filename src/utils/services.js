@@ -15,7 +15,7 @@ export const getEvents = () => new Promise(resolve => global.FB.api(
 export const getTargetEvents = (targetId) => new Promise(resolve => global.FB.api(
   `/${targetId}/events`,
   'GET',
-  {},
+  {"fields":"picture{url},name,id,attending"},
   function(response) {
     resolve(response)
   }
@@ -28,7 +28,8 @@ const targetIds = [
 
 
 export const getAllTargetEvents = () => {
-  return P.map(targetIds, getTargetEvents).then(x => _.map(x, 'data'))
+  return (P.map(targetIds, getTargetEvents).then(x => _.map(x, 'data'))).then(x => _.compact(_.flattenDeep(x))).catch(console.error)
+  // .then(x => _.compact(_.flattenDeep(x)))
 }
 
 const updateEventStatus = (eventId, status) => new Promise(resolve => global.FB.api(
