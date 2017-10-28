@@ -15,7 +15,7 @@ export const getEvents = () => new Promise(resolve => global.FB.api(
 export const getTargetEvents = (targetId) => new Promise(resolve => global.FB.api(
   `/${targetId}/events`,
   'GET',
-  {"fields":"picture{url},name,id,attending"},
+  {"fields":"picture{url},name,id,attending,description,place{name}"},
   function(response) {
     resolve(response)
   }
@@ -23,7 +23,7 @@ export const getTargetEvents = (targetId) => new Promise(resolve => global.FB.ap
 
 const targetIds = [
   '148584322421822','873530022667755','872547279487598',
-  '915919965208921','1350273538401150','925137314231681'
+  '915919965208921','1350273538401150','925137314231681',
 ]
 
 

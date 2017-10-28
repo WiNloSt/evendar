@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import EventCardList from './components/EventCardList'
 import LoginPage from './containers/LoginPage'
+import FriendTabs from './components/FriendTabs'
 
 export default class Debug extends Component{
   constructor(props) {
@@ -25,7 +26,7 @@ export default class Debug extends Component{
         onLoggedIn={this.onLoggedIn}
       />
         <h1>THIS IS DEBUG</h1>
-      <EventCardList />
+        <FriendTabs />
     </div>
     )
   }
