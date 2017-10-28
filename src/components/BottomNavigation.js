@@ -25,7 +25,10 @@ const Navigation = ({ routes, page, setPage, history }) => (
   </StickyBottom>
 )
 
-export default compose(withRouter, withState('page', 'setPage', 0))(Navigation)
+export default compose(
+  withRouter,
+  withState('page', 'setPage', ({ routes, location }) => routes.findIndex(route => route.path === location.pathname))
+)(Navigation)
 
 const StickyBottom = styled.div`
   width: 100%;
