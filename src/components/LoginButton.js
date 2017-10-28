@@ -1,5 +1,5 @@
 import React from 'react'
-import {getEvents} from '../utils/services'
+import {getEvents,getAllTargetEvents} from '../utils/services'
 
 export default class LoginButton extends React.Component {
     constructor(props) {
@@ -23,6 +23,9 @@ export default class LoginButton extends React.Component {
           localStorage.setItem('signedRequest', response.authResponse.signedRequest)
           localStorage.setItem('loginStatus', response.status)
           getEvents()
+          getAllTargetEvents().then((response)=>{
+            console.log('response',response)
+          })
         })
         this.changeLogInState()
     }

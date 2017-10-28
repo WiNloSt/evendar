@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import EventCardList from './components/EventCardList'
 import LoginPage from './containers/LoginPage'
+import {getAllTargetEvents} from './utils/services'
 
 export default class Debug extends Component{
   constructor(props) {
