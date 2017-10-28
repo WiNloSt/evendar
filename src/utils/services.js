@@ -15,7 +15,7 @@ export const getEvents = () => new Promise(resolve => global.FB.api(
 export const getTargetEvents = (targetId) => new Promise(resolve => global.FB.api(
   `/${targetId}/events`,
   'GET',
-  {"fields":"picture{url},name,id,attending,description,place{name}"},
+  {"fields":"picture{url},name,id,attending,description,place{name},cover,parent_group"},
   function(response) {
     resolve(response)
   }

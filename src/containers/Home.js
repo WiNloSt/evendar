@@ -17,14 +17,13 @@ export default class Home extends React.Component {
         getAllTargetEvents().then((recommendEvents) => {
           console.log('[recommendEvents]', recommendEvents);
           const formatEvent = (e) => {
-            console.log(e)
             return {
-              name: e.name,
-              id: e.id,
-              url: e.picture.data.url,
-              description: e.description,
-              organizerImg: e.picture.data.url,
-              organizerName:  e.name,
+              name: e.name || '',
+              id: e.id || '',
+              url: e.picture.data.url || '',
+              description: e.description || '',
+              organizerImg: (e.cover || {}).source || '',
+              organizerName: (e.parent_group || {}).name || '',
               going: e.rsvp_status
             }
           }
@@ -43,7 +42,6 @@ export default class Home extends React.Component {
     }, 2500)
   }
   render() {
-    console.log
     return (
       <div>
         <FlatButton label="Add สมาคมโปรแกรมเมอร์" primary={true} />
