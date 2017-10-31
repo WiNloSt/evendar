@@ -27,7 +27,7 @@ https://evendar-devc.firebaseapp.com
 Fullname | Github
 ------------ | -------------
 Supanut Apikulvanich | [@zugarzeeker](https://github.com/zugarzeeker)
-? | ?
+Phawin Khongkhasawan | [@lifez](https://github.com/lifez)
 ? | ?
 ? | ?
 ? | ?
