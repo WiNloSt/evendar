@@ -28,7 +28,7 @@ Fullname | Github
 ------------ | -------------
 Supanut Apikulvanich | [@zugarzeeker](https://github.com/zugarzeeker)
 Phawin Khongkhasawan | [@lifez](https://github.com/lifez)
-? | ?
-? | ?
+Pipatpol Nut Tanavongchinda | [@PNNutkung](https://github.com/PNNutkung)
+Nattapat Sukpootanan | [@b57105462322](https://github.com/b5710546232)
 ? | ?
 ? | ?
